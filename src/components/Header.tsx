@@ -1,76 +1,130 @@
 import React, { useState, useEffect } from 'react';
-import headerData from '../data/header.json';
+
+const slides = [
+  {
+    id: 1,
+    image: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=2070&auto=format&fit=crop',
+    title: 'Luxury Dental Care',
+    subtitle: 'Experience world-class treatment in a relaxing environment.'
+  },
+  {
+    id: 2,
+    image: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=2070&auto=format&fit=crop',
+    title: 'Expert Consultations',
+    subtitle: 'Personalized treatment plans crafted by top specialists.'
+  },
+  {
+    id: 3,
+    image: 'https://images.unsplash.com/photo-1609840114035-3c981b782dfe?q=80&w=2070&auto=format&fit=crop',
+    title: 'State-of-the-Art Tech',
+    subtitle: 'Advanced equipment for precise, pain-free procedures.'
+  },
+  {
+    id: 4,
+    image: 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?q=80&w=2070&auto=format&fit=crop',
+    title: 'Your Perfect Smile',
+    subtitle: 'Transforming lives through aesthetic dentistry.'
+  }
+];
 
 const Header: React.FC = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Handle scroll effect for glassmorphism header
+  // Auto-play functionality
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+    }, 6000);
+    return () => clearInterval(timer);
   }, []);
 
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+  };
+
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
-        isScrolled ? 'bg-white/80 backdrop-blur-md border border-white/20 shadow-sm py-3' : 'bg-transparent py-5'
-      }`}
-    >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
-          
-          {/* Logo and Name */}
-          <div className="flex items-center gap-3 cursor-pointer group">
-            <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-primary-100 shadow-sm transition-transform duration-300 group-hover:scale-105 group-hover:shadow-md bg-white flex items-center justify-center p-1">
-              <img 
-                src="/logos/logo-black.png" 
-                alt={`${headerData.name} Logo`} 
-                className="w-full h-full object-contain"
-              />
-            </div>
-            <div>
-              <h1 className="text-xl sm:text-2xl font-bold text-secondary-900 tracking-tight transition-colors duration-300 group-hover:text-primary-600">
-                {headerData.name}
-              </h1>
-              <p className="text-xs text-secondary-500 font-medium tracking-wider uppercase hidden sm:block">
-                {headerData.subtitle}
-              </p>
-            </div>
+    <div className="relative w-full h-screen overflow-hidden bg-black">
+      
+      {/* Slider Images */}
+      <div 
+        className="flex w-full h-full transition-transform duration-1000 ease-in-out"
+        style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+      >
+        {slides.map((slide) => (
+          <div key={slide.id} className="w-full h-full flex-shrink-0 relative">
+            <img 
+              src={slide.image} 
+              alt={slide.title}
+              className="w-full h-full object-cover object-center opacity-80"
+            />
+            {/* Dark overlay for readability */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"></div>
           </div>
+        ))}
+      </div>
 
-          {/* Navigation Links (Placeholder) */}
-          <nav className="hidden md:flex items-center gap-8">
-            {headerData.navLinks.map((item) => (
-              <a 
-                key={item} 
-                href={`#${item.toLowerCase()}`}
-                className="text-sm font-semibold text-secondary-800 hover:text-primary-600 transition-colors duration-200 relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[2px] after:bg-primary-500 hover:after:w-full after:transition-all after:duration-300"
-              >
-                {item}
-              </a>
-            ))}
-          </nav>
-
-          {/* Contact Action */}
-          <div className="flex items-center gap-4">
-            <a 
-              href={`https://wa.me/${headerData.whatsapp.replace(/\D/g, '')}`} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 bg-gradient-to-r from-[#25D366] to-[#128C7E] hover:from-[#128C7E] hover:to-[#075E54] text-white px-5 py-2.5 rounded-full font-semibold shadow-lg shadow-green-500/30 transition-all duration-300 hover:shadow-xl hover:shadow-green-500/40 hover:-translate-y-0.5 active:translate-y-0"
-            >
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
-              </svg>
-              <span className="hidden sm:inline">{headerData.bookNow}</span>
+      {/* Floating Content Over Slider */}
+      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-6 pointer-events-none">
+        <div className="max-w-4xl mx-auto flex flex-col items-center justify-center transition-opacity duration-500">
+          <span className="inline-block py-1.5 px-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-bold tracking-widest uppercase mb-6 shadow-sm">
+            Welcome to The Distinct Dentistry
+          </span>
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[80px] font-extrabold text-white leading-[1.05] tracking-tight mb-8 drop-shadow-lg">
+            {slides[currentSlide].title}
+          </h1>
+          <p className="text-xl sm:text-2xl text-gray-200 mb-10 max-w-2xl font-medium drop-shadow-md">
+            {slides[currentSlide].subtitle}
+          </p>
+          <div className="pointer-events-auto">
+            <a href="#contact" className="inline-block bg-white hover:bg-gray-100 text-gray-900 px-10 py-4 rounded-full font-bold text-lg transition-all shadow-2xl hover:-translate-y-1">
+              Book A Consultation
             </a>
           </div>
         </div>
       </div>
-    </header>
+
+      {/* Navigation Controls */}
+      <button 
+        onClick={prevSlide}
+        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center rounded-full bg-black/20 hover:bg-black/50 backdrop-blur-md border border-white/20 text-white transition-all hover:scale-110 focus:outline-none"
+        aria-label="Previous slide"
+      >
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" /></svg>
+      </button>
+
+      <button 
+        onClick={nextSlide}
+        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center rounded-full bg-black/20 hover:bg-black/50 backdrop-blur-md border border-white/20 text-white transition-all hover:scale-110 focus:outline-none"
+        aria-label="Next slide"
+      >
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" /></svg>
+      </button>
+
+      {/* Dot Indicators */}
+      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => goToSlide(index)}
+            className={`transition-all duration-300 rounded-full focus:outline-none ${
+              currentSlide === index 
+                ? 'w-10 h-2.5 bg-white shadow-[0_0_10px_rgba(255,255,255,0.8)]' 
+                : 'w-2.5 h-2.5 bg-white/40 hover:bg-white/70'
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
+
+    </div>
   );
 };
 
