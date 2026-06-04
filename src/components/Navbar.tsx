@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import navbarData from '../data/navbar.json';
 
 const Navbar: React.FC = () => {
@@ -45,13 +46,13 @@ const Navbar: React.FC = () => {
           {/* Desktop Navigation Links */}
           <nav className="hidden lg:flex items-center gap-8">
             {navbarData.navLinks.map((item) => (
-              <a 
-                key={item} 
-                href={`#${item.toLowerCase()}`}
+              <Link 
+                key={item.name} 
+                to={item.path}
                 className={`text-lg font-bold hover:text-primary-600 transition-colors duration-200 relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[2px] after:bg-primary-500 hover:after:w-full after:transition-all after:duration-300 ${isScrolled ? 'text-secondary-800' : 'text-white drop-shadow-md'}`}
               >
-                {item}
-              </a>
+                {item.name}
+              </Link>
             ))}
           </nav>
 
@@ -92,14 +93,14 @@ const Navbar: React.FC = () => {
       {isMobileMenuOpen && (
         <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-t border-gray-100 shadow-xl py-4 px-6 flex flex-col gap-4">
           {navbarData.navLinks.map((item) => (
-            <a 
-              key={item} 
-              href={`#${item.toLowerCase()}`}
+            <Link 
+              key={item.name} 
+              to={item.path}
               onClick={() => setIsMobileMenuOpen(false)}
               className="text-lg font-bold text-secondary-900 hover:text-primary-600 border-b border-gray-100 pb-3"
             >
-              {item}
-            </a>
+              {item.name}
+            </Link>
           ))}
           <a 
             href={`https://wa.me/${navbarData.whatsapp.replace(/\D/g, '')}`} 

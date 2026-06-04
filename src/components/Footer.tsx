@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import footerData from '../data/footer.json';
 
 const Footer: React.FC = () => {
@@ -54,11 +55,11 @@ const Footer: React.FC = () => {
             <h3 className="text-lg font-semibold mb-6 text-primary-400">{footerData.quickLinksTitle}</h3>
             <ul className="space-y-3 text-secondary-300">
               {footerData.quickLinks.map((link) => (
-                <li key={link}>
-                  <a href={`#${link.toLowerCase().replace(' ', '-')}`} className="hover:text-white transition-colors flex items-center gap-2 group">
+                <li key={link.name}>
+                  <Link to={link.path} className="hover:text-white transition-colors flex items-center gap-2 group">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary-500 group-hover:scale-150 transition-transform"></span>
-                    {link}
-                  </a>
+                    {link.name}
+                  </Link>
                 </li>
               ))}
             </ul>
