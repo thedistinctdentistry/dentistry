@@ -1,9 +1,90 @@
 {
-  "heroBadge": "Welcome to The Distinct Dentistry",
-  "heroTitleLine1": "Crafting Perfect Smiles",
-  "heroTitleLine2": "With Premium Care",
-  "heroDescription": "Experience world-class dental treatments in a modern, relaxing environment. Our expert team is dedicated to your oral health and beautiful smile.",
-  "primaryButton": "Explore Services",
-  "secondaryButton": "Learn More",
-  "dummyContent": "Content Area"
+  "features": {
+    "badge": "Dentistry Reimagined",
+    "title": "Why Choose The Distinct Dentistry?",
+    "items": [
+      {
+        "id": "luxury",
+        "title": "Luxury Environment",
+        "description": "Step into a relaxing, spa-like atmosphere designed to completely eliminate dental anxiety.",
+        "icon": "sparkles"
+      },
+      {
+        "id": "tech",
+        "title": "Advanced Technology",
+        "description": "We utilize 3D imaging, laser dentistry, and cutting-edge equipment for precise treatments.",
+        "icon": "microscope"
+      },
+      {
+        "id": "pain-free",
+        "title": "Pain-Free Procedures",
+        "description": "Experience modern techniques that ensure your comfort from start to finish.",
+        "icon": "heart"
+      }
+    ]
+  },
+  "experts": {
+    "badge": "Our Specialists",
+    "title": "Meet Our Dental Experts",
+    "items": [
+      {
+        "id": "1",
+        "name": "Dr. Syed Mukammil Shah",
+        "qualifications": "BDS RDS",
+        "details": [
+          "FCPS Operative and endodontics dentistry IIDH Islamabad",
+          "Lecturer Bacha khan Dental College Mardan",
+          "Visiting consultant at Oradent Dental Clinic I-8 Islamabad"
+        ]
+      },
+      {
+        "id": "2",
+        "name": "Dr. Zia Ul islam",
+        "qualifications": "BDS RDS",
+        "details": [
+          "MCPS oral surgery",
+          "MMC"
+        ]
+      },
+      {
+        "id": "3",
+        "name": "Dr. Hanif Ullah",
+        "qualifications": "BDS, RDS",
+        "details": [
+          "FCPS Prosthodontics",
+          "C- Restorative and endodontics",
+          "Lecturer at Bacha Khan Dental College Mardan"
+        ]
+      }
+    ]
+  },
+  "testimonials": {
+    "badge": "Patient Stories",
+    "title": "Smiles We've Transformed",
+    "items": [
+      {
+        "id": "1",
+        "name": "Sarah Khan",
+        "review": "The Distinct Dentistry completely changed my view of dentists. The luxury environment and pain-free treatment were unbelievable!",
+        "rating": 5
+      },
+      {
+        "id": "2",
+        "name": "Ali Hassan",
+        "review": "State-of-the-art clinic right here in Mardan. The team is incredibly professional and the hygiene standards are top-notch.",
+        "rating": 5
+      },
+      {
+        "id": "3",
+        "name": "Ayesha Tariq",
+        "review": "I had my implants done here. Flawless procedure and beautiful results. I can't stop smiling now!",
+        "rating": 5
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready for Your Perfect Smile?",
+    "description": "Book a consultation with our experts today and take the first step towards exceptional oral wellness.",
+    "buttonText": "Book Your Appointment"
+  }
 }
