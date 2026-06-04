@@ -1,0 +1,108 @@
+{
+  "hero": {
+    "title": "Our Premium Dental Services",
+    "subtitle": "Discover a comprehensive range of treatments designed to give you a healthy, beautiful smile using the latest technology.",
+    "backgroundImage": "/services/general_dentistry.png"
+  },
+  "categories": [
+    {
+      "id": "general-dentistry",
+      "title": "General Dentistry",
+      "description": "Comprehensive care to maintain your oral health and prevent future issues.",
+      "image": "/services/general_dentistry.png",
+      "items": [
+        "Exams",
+        "Cleanings",
+        "Fillings",
+        "Root Canals",
+        "Gum Treatment",
+        "Extractions",
+        "Dentures"
+      ]
+    },
+    {
+      "id": "cosmetic-dentistry",
+      "title": "Cosmetic Dentistry",
+      "description": "Enhance your smile with aesthetic treatments that boost your confidence.",
+      "image": "/services/cosmetic_dentistry.png",
+      "items": [
+        "Teeth Whitening",
+        "Veneers",
+        "Bonding",
+        "Smile Makeovers",
+        "Gum Contouring"
+      ]
+    },
+    {
+      "id": "restorative-dentistry",
+      "title": "Restorative Dentistry",
+      "description": "Restore the function and aesthetics of your teeth with advanced solutions.",
+      "image": "/services/restorative_dentistry.png",
+      "items": [
+        "Crowns",
+        "Bridges",
+        "Inlays/Onlays",
+        "Full Mouth Reconstruction"
+      ]
+    },
+    {
+      "id": "dental-implants",
+      "title": "Dental Implants",
+      "description": "Permanent, natural-looking replacements for missing teeth.",
+      "image": "/services/dental_implants.png",
+      "items": [
+        "Single Implants",
+        "Multiple Implants",
+        "All-on-4/All-on-6",
+        "Implant Dentures"
+      ]
+    },
+    {
+      "id": "orthodontics",
+      "title": "Orthodontics",
+      "description": "Straighten your teeth for a perfect smile and better oral health.",
+      "image": "/services/orthodontics.png",
+      "items": [
+        "Braces",
+        "Clear Aligners",
+        "Children's Ortho",
+        "Retainers"
+      ]
+    },
+    {
+      "id": "pediatric-dentistry",
+      "title": "Pediatric Dentistry",
+      "description": "Gentle and fun dental care specially tailored for children.",
+      "image": "/services/pediatric_dentistry.png",
+      "items": [
+        "Kids' Exams",
+        "Fluoride",
+        "Sealants",
+        "Habit Appliances"
+      ]
+    },
+    {
+      "id": "oral-surgery",
+      "title": "Oral Surgery",
+      "description": "Expert surgical procedures performed with maximum comfort and care.",
+      "image": "/services/oral_surgery.png",
+      "items": [
+        "Wisdom Teeth",
+        "Surgical Extractions",
+        "Bone Grafting"
+      ]
+    },
+    {
+      "id": "emergency-care",
+      "title": "Emergency Care",
+      "description": "Fast, reliable treatment when you need urgent dental assistance.",
+      "image": "/services/emergency_care.png",
+      "items": [
+        "Toothache",
+        "Broken Teeth",
+        "Knocked-Out Teeth",
+        "Same-Day Care"
+      ]
+    }
+  ]
+}
