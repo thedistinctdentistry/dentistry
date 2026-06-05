@@ -67,12 +67,8 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-secondary-800 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-secondary-500">
+        <div className="pt-8 border-t border-secondary-800 flex flex-col md:flex-row items-center justify-center gap-4 text-sm text-secondary-500">
           <p>&copy; {currentYear} {footerData.name}. {footerData.rightsReserved}</p>
-          <div className="flex items-center gap-6">
-            <a href="#privacy" className="hover:text-white transition-colors">{footerData.privacyPolicy}</a>
-            <a href="#terms" className="hover:text-white transition-colors">{footerData.termsOfService}</a>
-          </div>
         </div>
       </div>
     </footer>
