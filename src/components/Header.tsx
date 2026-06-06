@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const slides = [
   {
@@ -84,9 +85,12 @@ const Header: React.FC = () => {
             {slides[currentSlide].subtitle}
           </p>
           <div className="pointer-events-auto">
-            <a href="#contact" className="inline-block bg-white hover:bg-gray-100 text-gray-900 px-10 py-4 rounded-full font-bold text-lg transition-all shadow-2xl hover:-translate-y-1">
+            <Link 
+              to="/contact" 
+              className="inline-flex items-center gap-2 bg-white text-secondary-900 px-8 py-4 rounded-full font-bold text-lg shadow-[0_0_40px_rgba(255,255,255,0.3)] hover:shadow-[0_0_60px_rgba(255,255,255,0.5)] transition-all duration-300 hover:-translate-y-1 group"
+            >
               Book A Consultation
-            </a>
+            </Link>
           </div>
         </div>
       </div>
