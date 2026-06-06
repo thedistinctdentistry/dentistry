@@ -2,6 +2,11 @@
   "name": "The Distinct Dentistry",
   "whatsapp": "0315 6833628",
   "subtitle": "Premium Dental Care",
-  "navLinks": ["Home", "Services", "About", "Contact"],
+  "navLinks": [
+    { "name": "Home", "path": "/" },
+    { "name": "Services", "path": "/services" },
+    { "name": "About", "path": "/about" },
+    { "name": "Contact", "path": "/contact" }
+  ],
   "bookNow": "Book Now"
 }

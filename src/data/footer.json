@@ -5,7 +5,12 @@
   "description": "Experience state-of-the-art dental care with our team of specialists. We are committed to providing you with a comfortable, personalized, and premium dental experience.",
   "contactTitle": "Contact Us",
   "quickLinksTitle": "Quick Links",
-  "quickLinks": ["Home", "Services", "About", "Contact"],
+  "quickLinks": [
+    { "name": "Home", "path": "/" },
+    { "name": "Services", "path": "/services" },
+    { "name": "About", "path": "/about" },
+    { "name": "Contact", "path": "/contact" }
+  ],
   "rightsReserved": "All rights reserved.",
   "privacyPolicy": "Privacy Policy",
   "termsOfService": "Terms of Service"

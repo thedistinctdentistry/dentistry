@@ -1,0 +1,34 @@
+{
+  "hero": {
+    "title": "About The Distinct Dentistry",
+    "subtitle": "Discover our commitment to excellence, patient comfort, and advanced dental care.",
+    "backgroundImage": "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80"
+  },
+  "story": {
+    "badge": "Our Story",
+    "title": "A Legacy of Beautiful Smiles in Mardan",
+    "content": [
+      "Founded with a vision to redefine dental care in Mardan, The Distinct Dentistry was established to bridge the gap between world-class treatment and local accessibility. We believe that visiting the dentist shouldn't be a source of anxiety, but rather a reassuring step towards better health and confidence.",
+      "Our state-of-the-art clinic is designed from the ground up to provide a calming, luxurious environment. From the moment you walk through our doors, our dedicated team ensures your experience is comfortable, personalized, and entirely pain-free."
+    ],
+    "image": "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80"
+  },
+  "mission": {
+    "badge": "Our Mission",
+    "title": "Excellence in Every Detail",
+    "items": [
+      {
+        "title": "Patient-Centric Approach",
+        "description": "Your comfort and needs dictate every step of our treatment planning."
+      },
+      {
+        "title": "Advanced Technology",
+        "description": "We invest in the latest dental tech to ensure precise, efficient, and lasting results."
+      },
+      {
+        "title": "Uncompromising Hygiene",
+        "description": "Our sterilization protocols exceed international standards for your absolute safety."
+      }
+    ]
+  }
+}

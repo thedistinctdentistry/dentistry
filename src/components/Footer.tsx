@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import footerData from '../data/footer.json';
 
 const Footer: React.FC = () => {
@@ -42,7 +43,7 @@ const Footer: React.FC = () => {
                 <div className="text-primary-500 group-hover:text-primary-400 transition-colors">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
                 </div>
-                <a href={`https://wa.me/${footerData.whatsapp.replace(/\D/g, '')}`} className="hover:text-white transition-colors">
+                <a href={`https://api.whatsapp.com/send/?phone=${footerData.whatsapp.replace(/\D/g, '').replace(/^0/, '92')}&type=phone_number&app_absent=0`} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
                   {footerData.whatsapp}
                 </a>
               </li>
@@ -54,11 +55,11 @@ const Footer: React.FC = () => {
             <h3 className="text-lg font-semibold mb-6 text-primary-400">{footerData.quickLinksTitle}</h3>
             <ul className="space-y-3 text-secondary-300">
               {footerData.quickLinks.map((link) => (
-                <li key={link}>
-                  <a href={`#${link.toLowerCase().replace(' ', '-')}`} className="hover:text-white transition-colors flex items-center gap-2 group">
+                <li key={link.name}>
+                  <Link to={link.path} className="hover:text-white transition-colors flex items-center gap-2 group">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary-500 group-hover:scale-150 transition-transform"></span>
-                    {link}
-                  </a>
+                    {link.name}
+                  </Link>
                 </li>
               ))}
             </ul>
