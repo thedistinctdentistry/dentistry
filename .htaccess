@@ -1,3 +1,14 @@
-RewriteEngine On
-RewriteCond %{REQUEST_URI} !^/dist/
-RewriteRule ^(.*)$ /dist/$1 [L]
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  
+  # Prevent Apache from automatically adding slashes to directories
+  # This stops the browser from redirecting to /dist/services/
+  DirectorySlash Off
+
+  # 1. If the exact file exists in /dist/ (like an image or css), serve it
+  RewriteCond %{DOCUMENT_ROOT}/dist/$1 -f
+  RewriteRule ^(.*)$ /dist/$1 [L]
+
+  # 2. Otherwise, route all other requests to /dist/index.html to let React Router handle them
+  RewriteRule ^(.*)$ /dist/index.html [L]
+</IfModule>
