@@ -31,6 +31,7 @@
         "id": "1",
         "name": "Dr. Syed Mukammil Shah",
         "qualifications": "BDS RDS, FCPS",
+        "timings": "Mon - Thurs 4:00 - 8:00",
         "details": [
           "Operative and endodontics dentistry IIDH Islamabad",
           "Lecturer Bacha khan Dental College Mardan",
@@ -41,6 +42,7 @@
         "id": "2",
         "name": "Dr. Zia Ul islam",
         "qualifications": "BDS RDS",
+        "timings": "Mon - Sat 9:30 - 2:00",
         "details": [
           "MCPS oral surgery",
           "MMC"
@@ -50,6 +52,7 @@
         "id": "3",
         "name": "Dr. Hanif Ullah",
         "qualifications": "BDS, RDS, FCPS",
+        "timings": "Mon - Sat 4:00 - 8:00",
         "details": [
           "Prosthodontics",
           "C- Restorative and endodontics",
