@@ -43,9 +43,17 @@ const Experts: React.FC = () => {
                 <h3 className="text-2xl font-bold text-secondary-900 mb-2">
                   {expert.name}
                 </h3>
-                <p className="text-primary-600 font-semibold mb-6">
+                <p className="text-primary-600 font-semibold mb-4">
                   {expert.qualifications}
                 </p>
+                {expert.timings && (
+                  <div className="flex items-center gap-2 text-secondary-600 bg-secondary-50 px-4 py-2 rounded-lg mb-6">
+                    <svg className="w-4 h-4 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span className="text-sm font-medium">{expert.timings}</span>
+                  </div>
+                )}
 
                 <div className="w-12 h-1 bg-primary-100 rounded-full mb-6"></div>
 
