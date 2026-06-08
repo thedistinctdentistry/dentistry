@@ -6,6 +6,9 @@ const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  const whatsappNumber = navbarData.whatsapp.replace(/\D/g, '').replace(/^0/, '92');
+  const whatsappUrl = `https://api.whatsapp.com/send/?phone=${whatsappNumber}&type=phone_number&app_absent=0`;
+
   // Handle scroll effect for glassmorphism header
   useEffect(() => {
     const handleScroll = () => {
@@ -59,15 +62,17 @@ const Navbar: React.FC = () => {
           {/* Desktop Contact & Mobile Toggle */}
           <div className="flex items-center gap-4 z-50">
             {/* Desktop Contact Button */}
-            <Link 
-              to="/contact" 
+            <a 
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="hidden sm:flex items-center gap-2 bg-gradient-to-r from-[#25D366] to-[#128C7E] hover:from-[#128C7E] hover:to-[#075E54] text-white px-5 py-2.5 rounded-full font-semibold shadow-lg shadow-green-500/30 transition-all duration-300 hover:shadow-xl hover:shadow-green-500/40 hover:-translate-y-0.5"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
               <span>{navbarData.bookNow}</span>
-            </Link>
+            </a>
 
             {/* Mobile/Tablet Hamburger Button */}
             <button 
@@ -100,8 +105,10 @@ const Navbar: React.FC = () => {
               {item.name}
             </Link>
           ))}
-            <Link 
-              to="/contact" 
+            <a 
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setIsMobileMenuOpen(false)}
               className="flex items-center justify-center gap-2 bg-gradient-to-r from-[#25D366] to-[#128C7E] text-white px-5 py-3.5 mt-2 rounded-full font-bold shadow-md hover:from-[#128C7E] hover:to-[#075E54] transition-colors"
             >
@@ -109,7 +116,7 @@ const Navbar: React.FC = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
               <span>{navbarData.bookNow}</span>
-            </Link>
+            </a>
         </div>
       )}
     </header>
